@@ -1,0 +1,13 @@
+:root { color-scheme: light dark; }
+body {
+  font: 17px/1.6 ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 3rem 1.25rem 4rem;
+}
+header { margin-bottom: 2.5rem; }
+header a { font-weight: 700; font-size: 1.25rem; text-decoration: none; color: inherit; }
+h1 { font-size: 2rem; line-height: 1.2; margin: 0 0 1rem; }
+h2 { font-size: 1.15rem; margin: 2rem 0 0.5rem; }
+footer { margin-top: 3rem; font-size: 0.9rem; opacity: 0.75; }
+footer a { margin-right: 1rem; }
