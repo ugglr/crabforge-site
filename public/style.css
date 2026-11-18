@@ -11,3 +11,7 @@ h1 { font-size: 2rem; line-height: 1.2; margin: 0 0 1rem; }
 h2 { font-size: 1.15rem; margin: 2rem 0 0.5rem; }
 footer { margin-top: 3rem; font-size: 0.9rem; opacity: 0.75; }
 footer a { margin-right: 1rem; }
+.brand { display: inline-flex; align-items: center; gap: 0.6rem; }
+.brand .mark { width: 36px; height: 36px; image-rendering: pixelated; display: block; }
+.brand .word { font: 700 1.3rem/1 ui-monospace, Menlo, Monaco, monospace; letter-spacing: -0.02em; }
+.brand .word span { color: #ff6b1a; }
