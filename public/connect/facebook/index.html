@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <meta name="referrer" content="no-referrer">
+  <title>Connecting Facebook | Crabforge</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta property="og:image" content="https://crabforge.com/og.png">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header><a class="brand" href="/" aria-label="Crabforge home"><picture><source srcset="/mark-on-dark.svg" media="(prefers-color-scheme: dark)"><img class="mark" src="/mark-on-light.svg" alt="" width="36" height="36"></picture><span class="word">crab<span>forge</span></span></a></header>
+  <main>
+    <h1>Connecting Facebook</h1>
+    <p id="status">Handing the sign-in back to Crabforge on this computer.</p>
+  </main>
+  <script>
+    // Meta only accepts an HTTPS redirect, and Crabforge runs on localhost.
+    // This page passes Meta's answer on to the local Crabforge, which
+    // checks the state it issued before it uses the code. Only the known
+    // parameters are forwarded.
+    (function () {
+      var target = 'http://localhost:3000/connections/callback/facebook';
+      var keep = ['code', 'state', 'error', 'error_reason', 'error_description'];
+      var from = new URLSearchParams(window.location.search);
+      var to = new URLSearchParams();
+      keep.forEach(function (key) {
+        var value = from.get(key);
+        if (value !== null) to.set(key, value);
+      });
+      if (!to.has('state')) {
+        document.getElementById('status').textContent =
+          'This page only works as the end of a Crabforge sign-in.';
+        return;
+      }
+      window.location.replace(target + '?' + to.toString());
+    })();
+  </script>
+</body>
+</html>
